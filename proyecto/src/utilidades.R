@@ -1,1 +1,0 @@
-## Este script debería contener funciones de utilidad
