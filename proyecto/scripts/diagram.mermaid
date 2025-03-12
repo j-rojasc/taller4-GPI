@@ -1,0 +1,32 @@
+graph TD;
+    %% Fase I: Simulación de datos
+    A[Simulación de datos] --> |Ejecutar simulate_data.R| B[Datos simulados - raw_data.csv]
+    
+    %% Fase II: Limpieza y procesamiento
+    B --> |Ejecutar 02_limpieza_datos.R| C[Limpieza de datos]
+    C --> |Imputar valores faltantes, ajustar formatos| D[Datos limpios - clean_data.csv]
+    
+    %% Fase III: Análisis de datos
+    D --> |Ejecutar 03_analisis_visualizacion_datos.R| E[Análisis exploratorio y visualización]
+    E --> |Exportar| F[Gráfica de ventas - ventas.png]
+
+    D --> |Ejecutar 04_modelacion_regresiones.R| G[Modelado y regresión]
+    G --> |Exportar| H[Resultados - resultados_regresiones.html]
+
+    %% Definir subgrupos para organizar visualmente el diagrama
+    subgraph "Fase I: Introducción de Datos"
+        A
+        B
+    end
+
+    subgraph "Fase II: Limpieza y Procesamiento de Datos"
+        C
+        D
+    end
+
+    subgraph "Fase III: Análisis de los Datos"
+        E
+        F
+        G
+        H
+    end
