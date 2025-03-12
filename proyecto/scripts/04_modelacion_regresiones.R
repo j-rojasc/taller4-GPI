@@ -10,7 +10,7 @@ p_load(dplyr, ggplot2, psych, lmtest, stargazer)
 source("C:/Users/jroja/OneDrive/Documents/GitHub/taller4-GPI/proyecto/scripts/01_directorios_principales.R")
 
 ## Cargar los datos limpios
-cleaned_data <- read.csv(file.path(dir_datos, "cleaned_data.csv"))
+cleaned_data <- read.csv(file.path(dir_datos_pro, "cleaned_data.csv"))
 
 ## Ajustar formato de fecha
 cleaned_data <- cleaned_data %>%  mutate(Fecha = as.Date(Fecha))
@@ -21,7 +21,7 @@ reg <- lm(Ventas ~ Publicidad_TV + Publicidad_Digital + Publicidad_Social,
              data = cleaned_data)
 
 ## Generar resumen del modelo
-resultados_reg <- file.path(dir_resultados, "resultados_regresion_2.html")
+resultados_reg <- file.path(dir_resultados_tab, "resultados_regresion.html")
 stargazer(reg, type = "html", out = resultados_reg)
 
 ## Mensaje de confirmación

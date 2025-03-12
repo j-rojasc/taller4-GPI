@@ -9,7 +9,7 @@ p_load(dplyr)
 source("C:/Users/jroja/OneDrive/Documents/GitHub/taller4-GPI/proyecto/scripts/01_directorios_principales.R")
 
 ## Cargar los datos crudos
-raw_data <- read.csv(file.path(dir_datos,"raw_data.csv"))
+raw_data <- read.csv(file.path(dir_datos_raw,"raw_data.csv"))
 
 # Crear función para reemplazar missing values con la media
 reemplazar_na <- function(column) {
@@ -32,4 +32,4 @@ cleaned_data <- raw_data %>%
   arrange(Fecha)
 
 ## Guardar los datos limpios
-write.csv(cleaned_data, file.path(dir_datos,'cleaned_data.csv'), row.names = F)
+write.csv(cleaned_data, file.path(dir_datos_pro,'cleaned_data.csv'), row.names = F)

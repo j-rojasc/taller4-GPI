@@ -9,7 +9,7 @@ p_load(dplyr, ggplot2, psych)
 source("C:/Users/jroja/OneDrive/Documents/GitHub/taller4-GPI/proyecto/scripts/01_directorios_principales.R")
 
 ## Cargar los datos limpios
-cleaned_data <- read.csv(file.path(dir_datos, "cleaned_data.csv"))
+cleaned_data <- read.csv(file.path(dir_datos_pro, "cleaned_data.csv"))
 
 ## Ajustar formato de fecha
 cleaned_data <- cleaned_data %>%  mutate(Fecha = as.Date(Fecha))
@@ -19,7 +19,7 @@ est_descriptivas <- describe(cleaned_data)
 
 ## Guardar la tabla de estadísticas descriptivas
 write.csv(est_descriptivas,
-          file.path(dir_resultados, "estadisticas_descriptivas.csv"),
+          file.path(dir_resultados_tab, "estadisticas_descriptivas.csv"),
           row.names = F)
 
 ## Crear una gráfica de línea de Ventas en el tiempo
@@ -27,5 +27,5 @@ plot_ventas <- ggplot(cleaned_data, aes(x = Fecha, y = Ventas)) +
   geom_line() + theme_minimal()
 
 ## Guardar la gráfica en resultados
-ggsave(file.path(dir_resultados, 'Ventas.png'),
+ggsave(file.path(dir_resultados_fig, 'Ventas.png'),
        plot = plot_ventas, width = 10, height = 8)
