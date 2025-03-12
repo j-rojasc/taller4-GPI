@@ -24,7 +24,7 @@ write.csv(est_descriptivas,
 
 ## Crear una gráfica de línea de Ventas en el tiempo
 plot_ventas <- ggplot(cleaned_data, aes(x = Fecha, y = Ventas)) +
-  geom_line() + theme_minimal()
+  geom_line() + theme_void()
 
 ## Guardar la gráfica en resultados
 ggsave(file.path(dir_resultados_fig, 'Ventas.png'),
