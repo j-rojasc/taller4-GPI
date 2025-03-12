@@ -21,7 +21,7 @@ reg <- lm(Ventas ~ Publicidad_TV + Publicidad_Digital + Publicidad_Social,
              data = cleaned_data)
 
 ## Generar resumen del modelo
-resultados_reg <- file.path(dir_resultados, "resultados_regresion.html")
+resultados_reg <- file.path(dir_resultados, "resultados_regresion_2.html")
 stargazer(reg, type = "html", out = resultados_reg)
 
 ## Mensaje de confirmación
