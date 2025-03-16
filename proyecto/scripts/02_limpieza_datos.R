@@ -3,13 +3,18 @@
 ## Cargar librerías necesarias
 #install.packages("pacman")
 library(pacman)
-p_load(dplyr)
+p_load(dplyr, rjson, rio, tidyr, here, janitor)
 
 ## Ejecutar el script que carga los directorios principales
 source("C:/Users/jroja/OneDrive/Documents/GitHub/taller4-GPI/proyecto/scripts/01_directorios_principales.R")
 
 ## Cargar los datos crudos
-raw_data <- read.csv(file.path(dir_datos_raw,"raw_data.csv"))
+#raw_data <- read.csv(file.path(dir_datos_raw,"raw_data.csv"))
+
+url <- "https://zenodo.org/records/15033833/files/raw_data.csv"
+destfile <- "raw_data.csv"
+download.file(url, destfile)
+raw_data <- read.csv(destfile)
 
 # Crear función para reemplazar missing values con la media
 reemplazar_na <- function(column) {
